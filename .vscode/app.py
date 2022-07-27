@@ -12,7 +12,7 @@ def login():
         email=request.form["email"]
         password=request.form["password"]
 
-        sql = 'select *from user where email =%s and password= %s'   
+        sql = 'select * from user where email =%s and password= %s'   
         cursor.execute(sql(email,password)) 
 
         if  cursor.rowcount==0:
@@ -20,8 +20,14 @@ def login():
         else:
             session['key']=email
 
-            return redirect('/')
+            return render_template('index.html')
     else: 
         return render_template('login.html')
 
+@app.route("/")
+def index():
+    if 'key' in session:
+        return render_template('home.html')
+    else:
+        return redirect('/login')
 
