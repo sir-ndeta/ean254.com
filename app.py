@@ -59,7 +59,7 @@ def adminlogin():
         email=request.form["email"]
         password=request.form["password"]
 
-        sql = 'select * from Admin where email =%s and password= %s'   
+        sql = 'select * from admin where email =%s and password= %s'   
         cursor.execute(sql,(email,password)) 
 
         if  cursor.rowcount==0:
