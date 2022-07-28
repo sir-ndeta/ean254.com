@@ -32,6 +32,7 @@ CREATE TABLE `Admin` (
   `EmpNO` int(11) NOT NULL,
   `Picture` varchar(200) NOT NULL,
   `Name` varchar(20) NOT NULL,
+`email` varchar(50) NOT NULL,
   `Password` varchar(10) NOT NULL,
   `Rating` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
