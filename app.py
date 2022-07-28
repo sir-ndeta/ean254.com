@@ -15,13 +15,13 @@ def signup():
         name=request.form['name']
         email=request.form['email']
         password=request.form['password']
-        pnumb=request.form['phone']
+        pnumb=request.form['pnumb']
         gender=request.form['gender']
 
         if len(password)<8:
             return render_template('signup.html',msg='password should be eight characters')
         else:
-            sql= 'insert into clientdetails(name,email,password,phone,gender)values(%s,%s,%s,%s,%s)'
+            sql= 'insert into clientdetails(name,email,password,pnumb,gender)values(%s,%s,%s,%s,%s)'
             cursor.execute(sql,(name,email,password,pnumb,gender))
             conn.commit()
             return render_template('login.html',msg='saved succesfuly')
@@ -49,6 +49,27 @@ def login():
             return render_template('home.html')
     else: 
         return render_template('login.html')
+    
+@app.route('/adminlogin', methods=["GET","POST"])
+def adminlogin():
+    conn = pymysql.connect(host='localhost', user='root', password="", database="ean254.com")
+    cursor = conn.cursor() 
+
+    if request.method =="POST":
+        email=request.form["email"]
+        password=request.form["password"]
+
+        sql = 'select * from Admin where email =%s and password= %s'   
+        cursor.execute(sql,(email,password)) 
+
+        if  cursor.rowcount==0:
+            return render_template("adminlogin.html", msg="invalid credentials")
+        else:
+            session['key']=password
+
+            return render_template('admin.html')
+    else: 
+        return render_template('adminlogin.html')
 
 @app.route("/")
 def index():
@@ -63,7 +84,8 @@ def about():
         return render_template('about.html')
     else:
         return redirect('/login')
-    
+
+
 @app.route("/services")
 def services():
     if 'key' in session:
@@ -85,6 +107,20 @@ def services():
 def contact():
     if 'key' in session:
         return render_template('contact.html')
+    else:
+        return redirect('/login') 
+    
+@app.route("/admin")
+def admin():
+    if 'key' in session:
+        return render_template('admin.html')
+    else:
+        return redirect('/login') 
+    
+@app.route("/assignment")
+def assignment():
+    if 'key' in session:
+        return render_template('assignment.html')
     else:
         return redirect('/login') 
     
