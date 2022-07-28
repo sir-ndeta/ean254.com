@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jul 26, 2022 at 02:37 PM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Värd: 127.0.0.1
+-- Tid vid skapande: 29 jul 2022 kl 00:01
+-- Serverversion: 10.4.24-MariaDB
+-- PHP-version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,38 +18,38 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ean254.com`
+-- Databas: `ean254.com`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Admin`
+-- Tabellstruktur `admin`
 --
 
-CREATE TABLE `Admin` (
+CREATE TABLE `admin` (
   `EmpNO` int(11) NOT NULL,
   `Picture` varchar(200) NOT NULL,
   `Name` varchar(20) NOT NULL,
-`email` varchar(50) NOT NULL,
   `Password` varchar(10) NOT NULL,
-  `Rating` varchar(3) NOT NULL
+  `Rating` varchar(3) NOT NULL,
+  `Email` varchar(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `Admin`
+-- Dumpning av Data i tabell `admin`
 --
 
-INSERT INTO `Admin` (`EmpNO`, `Picture`, `Name`, `Password`, `Rating`) VALUES
-(1, 'https://sirndeta.pythonanywhere.com/static/image/Ean.jpg', 'Ean ', '1234567890', '6');
+INSERT INTO `admin` (`EmpNO`, `Picture`, `Name`, `Password`, `Rating`, `Email`) VALUES
+(1, 'https://sirndeta.pythonanywhere.com/static/image/Ean.jpg', 'Ean ', '1234567890', '6', 'ean254@gmail.com');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Assignments`
+-- Tabellstruktur `assignments`
 --
 
-CREATE TABLE `Assignments` (
+CREATE TABLE `assignments` (
   `SN.` int(11) NOT NULL,
   `Client Name` varchar(50) NOT NULL,
   `Client Phone Number` varchar(10) NOT NULL,
@@ -62,27 +61,27 @@ CREATE TABLE `Assignments` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clientdetails`
+-- Tabellstruktur `clientdetails`
 --
 
 CREATE TABLE `clientdetails` (
   `Name` varchar(50) NOT NULL,
-  `Email` varchar(90) NOT NULL,
-  `Phone Number` varchar(10) NOT NULL,
+  `email` varchar(90) NOT NULL,
+  `pnumb` varchar(10) NOT NULL,
   `Password` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `clientdetails`
+-- Dumpning av Data i tabell `clientdetails`
 --
 
-INSERT INTO `clientdetails` (`Name`, `Email`, `Phone Number`, `Password`) VALUES
+INSERT INTO `clientdetails` (`Name`, `email`, `pnumb`, `Password`) VALUES
 ('Kerry Ndeta', 'kerrynw95@gmail.com', '0770100344', '0770100344');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `services`
+-- Tabellstruktur `services`
 --
 
 CREATE TABLE `services` (
@@ -94,7 +93,7 @@ CREATE TABLE `services` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `services`
+-- Dumpning av Data i tabell `services`
 --
 
 INSERT INTO `services` (`SN.`, `image`, `Name`, `Description`, `price`) VALUES
@@ -102,51 +101,51 @@ INSERT INTO `services` (`SN.`, `image`, `Name`, `Description`, `price`) VALUES
 (2, 'https://sirndeta.pythonanywhere.com/static/image/outside.jpg', 'Potraits', '2Hours photoshoot, indoor/outdoor. NO limit of outfit change. 20 final edited photos', '2500');
 
 --
--- Indexes for dumped tables
+-- Index för dumpade tabeller
 --
 
 --
--- Indexes for table `Admin`
+-- Index för tabell `admin`
 --
-ALTER TABLE `Admin`
+ALTER TABLE `admin`
   ADD PRIMARY KEY (`EmpNO`);
 
 --
--- Indexes for table `Assignments`
+-- Index för tabell `assignments`
 --
-ALTER TABLE `Assignments`
+ALTER TABLE `assignments`
   ADD PRIMARY KEY (`SN.`);
 
 --
--- Indexes for table `clientdetails`
+-- Index för tabell `clientdetails`
 --
 ALTER TABLE `clientdetails`
   ADD PRIMARY KEY (`Password`);
 
 --
--- Indexes for table `services`
+-- Index för tabell `services`
 --
 ALTER TABLE `services`
   ADD PRIMARY KEY (`SN.`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT för dumpade tabeller
 --
 
 --
--- AUTO_INCREMENT for table `Admin`
+-- AUTO_INCREMENT för tabell `admin`
 --
-ALTER TABLE `Admin`
+ALTER TABLE `admin`
   MODIFY `EmpNO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `Assignments`
+-- AUTO_INCREMENT för tabell `assignments`
 --
-ALTER TABLE `Assignments`
+ALTER TABLE `assignments`
   MODIFY `SN.` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `services`
+-- AUTO_INCREMENT för tabell `services`
 --
 ALTER TABLE `services`
   MODIFY `SN.` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
