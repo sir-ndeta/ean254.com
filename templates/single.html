@@ -11,14 +11,7 @@
     <title>ean254</title>
 
     <style>
-        .carousel-inner img{
-            width:85%;
-            height: 650px;
-            padding-top: 05px;
-        }
 
-        
-        
         
     #navigation {
             position: sticky;
@@ -52,8 +45,6 @@
                             <a href="/about" class="nav-item nav-link active" style="color:  #27f720 ;">About</a>
                             <a href="/services" class="nav-item nav-link active" style="color:  #27f720 ;">Services</a>
                             <a href="/contact" class="nav-item nav-link active" style="color:  #27f720 ;">Contact Us</a>
-                            <a href="/assignment" class="nav-item nav-link active" style="color:  #27f720 ;">Bookings</a>
-                            <a href="/admin" class="nav-item nav-link active" style="color:  #27f720 ;">Admin</a>
                         </div>
                     </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <a href="/logout" class="nav-item nav-link img-thumbnail text-black bg-danger">LogOut</a>&nbsp;
@@ -61,40 +52,41 @@
             </nav>
         </div>
 
-    </section>
-    <hr style="border: solid 4px red;">
-    <h2 class="text-center" style="font-family:'Times New Roman', Times, serif; font-weight:bolder; color:red;">Assignments</h2>
-    <hr style="border: solid 4px red;"><br>
-    <section class="row container-fluid">
-     <h2 class="text-center" style="font-family:'Times New Roman', Times, serif; font-weight:bolder; color:red;">{{msg}}</h2>
- 
- 
-      
- 
-     {% for row in rows %}
-     <div class="col-md-4">
-         <div class="card shadow p-3">
-            
-             <div class="card-body ">
-                 <h4>Client Name: {{row[1]}} </h4>
-                 <p>Client Phone NO: {{row[2]}} </p>
-                 <P>Service: {{row[4]}} </P>
-                 <P>Status: {{row[5]}} </P>
-                
-                </div>
-            
-         </div>
+    </section><br><br>
+
+    <hr>
+
+
+    <h3 class="text-center bg-primary text-success">single</h3>
+    <hr>
+    <br>
+<section clas="row container-fluid">
+
+    <div class="col-md-3">
+        <img src="{{row[1]}}" alt="">
+
     </div>
-    {% endfor %}
- 
-  
- 
-    </section>
- <br>
- 
- 
- 
- 
+
+    <div class="col-md-4">
+        <h5 class="card-text">Name: {{row[2]}}</h5>
+        <p class="card-title">{{row[3]}}</p>
+        <p class="card-title">KSH: {{row[4]}}</p>
+
+    </div>
+
+    <div class="col-md-3">
+        <form action="/mpesa" method="post"></form>
+        <label for="">Phone Number</label>
+        <input type="text" name="phone" class="form-control-sm" placeholder="2547xxxxxx"><br><br>
+        <label for="">Amount</label>
+        <input type="text" name="amount" class="form-control-sm" placeholder="amount"><br><br>
+        <input type="submit" class="btn btn-info" value="CHECKOUT">
+        </form>
+    </div>
+
+</section>
     
- </body>
- </html>
+
+
+</body>
+</html>

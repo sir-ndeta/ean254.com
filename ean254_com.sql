@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 29 jul 2022 kl 00:01
+-- Tid vid skapande: 02 aug 2022 kl 00:41
 -- Serverversion: 10.4.24-MariaDB
 -- PHP-version: 8.1.6
 
@@ -68,15 +68,16 @@ CREATE TABLE `clientdetails` (
   `Name` varchar(50) NOT NULL,
   `email` varchar(90) NOT NULL,
   `pnumb` varchar(10) NOT NULL,
-  `Password` varchar(10) NOT NULL
+  `Password` varchar(10) NOT NULL,
+  `Gender` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumpning av Data i tabell `clientdetails`
 --
 
-INSERT INTO `clientdetails` (`Name`, `email`, `pnumb`, `Password`) VALUES
-('Kerry Ndeta', 'kerrynw95@gmail.com', '0770100344', '0770100344');
+INSERT INTO `clientdetails` (`Name`, `email`, `pnumb`, `Password`, `Gender`) VALUES
+('Kerry Ndeta', 'kerrynw95@gmail.com', '0770100344', '0770100344', '');
 
 -- --------------------------------------------------------
 
@@ -85,7 +86,7 @@ INSERT INTO `clientdetails` (`Name`, `email`, `pnumb`, `Password`) VALUES
 --
 
 CREATE TABLE `services` (
-  `SN.` int(11) NOT NULL,
+  `SN` int(11) NOT NULL,
   `image` varchar(100) NOT NULL,
   `Name` varchar(30) NOT NULL,
   `Description` varchar(200) NOT NULL,
@@ -96,7 +97,7 @@ CREATE TABLE `services` (
 -- Dumpning av Data i tabell `services`
 --
 
-INSERT INTO `services` (`SN.`, `image`, `Name`, `Description`, `price`) VALUES
+INSERT INTO `services` (`SN`, `image`, `Name`, `Description`, `price`) VALUES
 (1, 'https://sirndeta.pythonanywhere.com/static/image/babyshoot.png', 'Babies Photography', '\'Have memories of your sweet little pumpkin that even when he grows old you still have memory of the innocent face. At Ean254 Photography we can make it happen', '200'),
 (2, 'https://sirndeta.pythonanywhere.com/static/image/outside.jpg', 'Potraits', '2Hours photoshoot, indoor/outdoor. NO limit of outfit change. 20 final edited photos', '2500');
 
@@ -126,7 +127,7 @@ ALTER TABLE `clientdetails`
 -- Index för tabell `services`
 --
 ALTER TABLE `services`
-  ADD PRIMARY KEY (`SN.`);
+  ADD PRIMARY KEY (`SN`);
 
 --
 -- AUTO_INCREMENT för dumpade tabeller
@@ -148,7 +149,7 @@ ALTER TABLE `assignments`
 -- AUTO_INCREMENT för tabell `services`
 --
 ALTER TABLE `services`
-  MODIFY `SN.` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `SN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
