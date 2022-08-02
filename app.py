@@ -206,11 +206,16 @@ def single(SN):
     conn=pymysql.connect(host='localhost',user='root',password='',database='ean254.com')
     cursor=conn.cursor()
 
+<<<<<<< HEAD
     sql='select*from services where SN=%s' 
+=======
+    sql='select*from services where SN.=%s' 
+>>>>>>> 282d23515a621f0da42a3504dbe60829282f5a27
     cursor.execute(sql,(SN))
     row=cursor.fetchone
     return render_template('single.hml',row=row)
 
+<<<<<<< HEAD
 @app.route('/save',methods=['GET','POST'])
 def book():
     conn=pymysql.connect(host='localhost',user='root',password='',database='ean254.com')
@@ -231,6 +236,8 @@ def book():
     else:
         return render_template('login.html')
 
+=======
+>>>>>>> 282d23515a621f0da42a3504dbe60829282f5a27
 
 
 
