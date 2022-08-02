@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Värd: 127.0.0.1
--- Tid vid skapande: 02 aug 2022 kl 00:41
--- Serverversion: 10.4.24-MariaDB
--- PHP-version: 8.1.6
+-- Host: localhost
+-- Generation Time: Aug 02, 2022 at 03:26 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Databas: `ean254.com`
+-- Database: `ean254.com`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabellstruktur `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -37,7 +38,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumpning av Data i tabell `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`EmpNO`, `Picture`, `Name`, `Password`, `Rating`, `Email`) VALUES
@@ -46,7 +47,7 @@ INSERT INTO `admin` (`EmpNO`, `Picture`, `Name`, `Password`, `Rating`, `Email`) 
 -- --------------------------------------------------------
 
 --
--- Tabellstruktur `assignments`
+-- Table structure for table `assignments`
 --
 
 CREATE TABLE `assignments` (
@@ -61,7 +62,7 @@ CREATE TABLE `assignments` (
 -- --------------------------------------------------------
 
 --
--- Tabellstruktur `clientdetails`
+-- Table structure for table `clientdetails`
 --
 
 CREATE TABLE `clientdetails` (
@@ -73,16 +74,17 @@ CREATE TABLE `clientdetails` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumpning av Data i tabell `clientdetails`
+-- Dumping data for table `clientdetails`
 --
 
 INSERT INTO `clientdetails` (`Name`, `email`, `pnumb`, `Password`, `Gender`) VALUES
+('WERE KERRY NDETA', 'kerrynw95@gmail.com', '0740876815', '0740876815', ''),
 ('Kerry Ndeta', 'kerrynw95@gmail.com', '0770100344', '0770100344', '');
 
 -- --------------------------------------------------------
 
 --
--- Tabellstruktur `services`
+-- Table structure for table `services`
 --
 
 CREATE TABLE `services` (
@@ -94,62 +96,64 @@ CREATE TABLE `services` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumpning av Data i tabell `services`
+-- Dumping data for table `services`
 --
 
 INSERT INTO `services` (`SN`, `image`, `Name`, `Description`, `price`) VALUES
 (1, 'https://sirndeta.pythonanywhere.com/static/image/babyshoot.png', 'Babies Photography', '\'Have memories of your sweet little pumpkin that even when he grows old you still have memory of the innocent face. At Ean254 Photography we can make it happen', '200'),
-(2, 'https://sirndeta.pythonanywhere.com/static/image/outside.jpg', 'Potraits', '2Hours photoshoot, indoor/outdoor. NO limit of outfit change. 20 final edited photos', '2500');
+(2, 'https://sirndeta.pythonanywhere.com/static/image/outside.jpg', 'Potraits', '2Hours photoshoot, indoor/outdoor. NO limit of outfit change. 20 final edited photos', '2500'),
+(5, 'https://sirndeta.pythonanywhere.com/static/image/video.jpeg', 'Edditing', 'The Best editing you would like to have in your memories', '2500'),
+(7, 'http://sirndeta.pythonanywhere.com/static/image/carousel.jpg', 'Live Coverage', 'We do offer live services if you would like to air your working as it happens at that time price per hour', '2500');
 
 --
--- Index för dumpade tabeller
+-- Indexes for dumped tables
 --
 
 --
--- Index för tabell `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`EmpNO`);
 
 --
--- Index för tabell `assignments`
+-- Indexes for table `assignments`
 --
 ALTER TABLE `assignments`
   ADD PRIMARY KEY (`SN.`);
 
 --
--- Index för tabell `clientdetails`
+-- Indexes for table `clientdetails`
 --
 ALTER TABLE `clientdetails`
   ADD PRIMARY KEY (`Password`);
 
 --
--- Index för tabell `services`
+-- Indexes for table `services`
 --
 ALTER TABLE `services`
   ADD PRIMARY KEY (`SN`);
 
 --
--- AUTO_INCREMENT för dumpade tabeller
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT för tabell `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `EmpNO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT för tabell `assignments`
+-- AUTO_INCREMENT for table `assignments`
 --
 ALTER TABLE `assignments`
   MODIFY `SN.` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT för tabell `services`
+-- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `SN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `SN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

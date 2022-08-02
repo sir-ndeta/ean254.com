@@ -18,7 +18,9 @@
             top: 0;
             z-index: 100;
         }
-
+    .m1{
+            margin-right: 5px
+       }
            
     </style>
 </head>
@@ -57,35 +59,85 @@
     <hr>
 
 
-    <h3 class="text-center bg-primary text-success">single</h3>
+    <h3 class="text-center bg-primary text-success">Ean254</h3>
     <hr>
     <br>
-<section clas="row container-fluid">
+<section class="row container-fluid">
 
-    <div class="col-md-3">
+    <div class="col-md-3 card bg-dark" >
         <img src="{{row[1]}}" alt="">
 
-    </div>
+    </div>&nbsp
 
-    <div class="col-md-4">
-        <h5 class="card-text">Name: {{row[2]}}</h5>
+    <div class="col-md-3 card bg-info d1">
+        <h5 class="card-text" style="text-family: ">Name: {{row[2]}}</h5>
         <p class="card-title">{{row[3]}}</p>
-        <p class="card-title">KSH: {{row[4]}}</p>
+        <p class="card-title">KSH: {{row[4]}}</p> &nbsp
 
     </div>
 
-    <div class="col-md-3">
-        <form action="/mpesa" method="post"></form>
+    <div class="col-md-3 m1  bg-succes d2" >
+        <form action="/mpesa" method="post">
         <label for="">Phone Number</label>
         <input type="text" name="phone" class="form-control-sm" placeholder="2547xxxxxx"><br><br>
         <label for="">Amount</label>
         <input type="text" name="amount" class="form-control-sm" placeholder="amount"><br><br>
-        <input type="submit" class="btn btn-info" value="CHECKOUT">
+        <input type="submit" class="btn btn-info" value="Pay">
         </form>
     </div>
 
-</section>
+</section><br><br><br>
     
+<footer class="row bg-dark ">
+    <div class="col-md-4 text-danger">
+        Work Hours <br>
+        <ul>
+            <li>Monday	7am to 8pm</li>
+            <li>Tuesday	7am tot 8pm</li>
+            <li>Wednesday 7am to 8pm</li>
+            <li>Thursday 7am to 8pm</li>
+            <li>Friday 7am to 8pm</li>
+            <li>Saturday Open 24 hours</li>
+            <li>Sunday 12:30 to 5pm</li>
+            
+        </ul>
+    </div>
+    <div class="col-md-4 text-danger">
+        OUR SOCIAL MEDIA PLATFORM
+        <ul>
+            <a href="https://api.whatsapp.com/message/G5ITFVGE442RB1?autoload=1&app_absent=0">Whatsapp</a><br>
+            <a href="https://www.instagram.com/ean254_photography/?__coig_restricted=1">Instagram</a><br>
+            <a href="https://m.facebook.com/EAN254PRODUCTION/?ref=page_internal">Facebook</a></li><br>
+            <a href="https://www.youtube.com/c/ean254ke">YouTube</a></li><br>
+
+        </ul>
+
+
+    </div>
+    <div class="col-md-4 text-danger">
+        THE GOSPEL OF LIFE
+        <ul>
+            <li>Eat</li>
+            <li>Work</li>
+            <li>Enjoy</li>
+            <li>Sleep</li>
+        </ul>
+
+
+    </div>
+    <br>
+    <div class="col-md-12 text-danger text-center">
+        <p>Love your life Build a Memory of it @EAN254</p>
+
+        
+    </div>
+
+
+
+
+
+
+</footer>
 
 
 </body>
